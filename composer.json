@@ -1,0 +1,11 @@
+{
+    "name": "ashique/expense-tracker-api",
+    "description": "A simple personal expense tracker api",
+    "authors": [
+        {
+            "name": "Ashique",
+            "email": "ashique12009@gmail.com"
+        }
+    ],
+    "require": {}
+}
