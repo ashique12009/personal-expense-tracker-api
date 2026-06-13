@@ -16,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 // ইউআরএল পাথ বের করা
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-// Herd এর রুটে থাকায় এখন কোনো সাবফোল্ডার স্ট্রিপ করার প্রয়োজন নেই।
 // শুধু নিশ্চিত করার জন্য ডান ও বাম পাশের বাড়তি স্ল্যাশ (/) ট্রিম করে ক্লিন করে নিচ্ছি।
 $route = '/' . trim($requestUri, '/');
 
@@ -29,6 +28,11 @@ switch ($route) {
   case '/api/register':
     $auth = new AuthController();
     $auth->register();
+    break;
+
+  case '/api/login':
+    $auth = new AuthController();
+    $auth->login();
     break;
 
   default:

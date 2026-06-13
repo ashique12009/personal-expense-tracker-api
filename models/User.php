@@ -25,4 +25,10 @@ class User {
       'password' => $hashedPassword
     ]);
   }
+
+  public function getUserByEmail($email) {
+    $stmt = $this->db->prepare("SELECT id, name, email, password FROM users WHERE email = :email");
+    $stmt->execute(['email' => $email]);
+    return $stmt->fetch(); // ইউজার থাকলে অ্যারে দেবে, না থাকলে false দেবে
+  }
 }
