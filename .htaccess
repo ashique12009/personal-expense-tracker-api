@@ -1,11 +1,11 @@
 <IfModule mod_rewrite.c>
-    RewriteEngine On
-    
-    # যদি রিকোয়েস্টটি কোনো আসল ফাইল বা ফোল্ডার না হয়
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    
-    # তবে সবকিছু public/index.php তে পাঠিয়ে দাও
-    RewriteRule ^(.*)$ public/index.php [L,QSA]
+  RewriteEngine On
+  
+  # যদি রিকোয়েস্টটি কোনো আসল ফাইল বা ফোল্ডার না হয়
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  
+  # তবে সবকিছু public/index.php তে পাঠিয়ে দাও
+  RewriteRule ^(.*)$ public/index.php [L,QSA]
 </IfModule>
 </>
