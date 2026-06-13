@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 // .env ফাইলটি লোড করার জন্য
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 
 // ১. ডাটাবেজ কানেকশন (আপনার ডাটাবেজের তথ্যের সাথে পরিবর্তন করে নিন)

@@ -1,13 +1,14 @@
 {
-    "name": "ashique/expense-tracker-api",
-    "description": "A simple personal expense tracker api",
-    "authors": [
-        {
-            "name": "Ashique",
-            "email": "ashique12009@gmail.com"
-        }
-    ],
-    "require": {
-        "vlucas/phpdotenv": "^5.6"
+  "name": "ashique/expense-tracker-api",
+  "description": "A simple personal expense tracker api",
+  "authors": [
+    {
+      "name": "Ashique",
+      "email": "ashique12009@gmail.com"
     }
+  ],
+  "require": {
+    "vlucas/phpdotenv": "^5.6",
+    "firebase/php-jwt": "^7.1"
+  }
 }
