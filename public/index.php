@@ -21,6 +21,7 @@ $route = '/' . trim($requestUri, '/');
 
 // কন্ট্রোলার ইমপোর্ট করা
 require_once __DIR__ . '/../controllers/AuthController.php';
+require_once __DIR__ . '/../controllers/CategoryController.php';
 
 // কাস্টম রাউটার
 switch ($route) {
@@ -33,6 +34,20 @@ switch ($route) {
   case '/api/login':
     $auth = new AuthController();
     $auth->login();
+    break;
+
+  case '/api/categories':
+    $category = new CategoryController();
+        
+    // রিকোয়েস্ট মেথড অনুযায়ী আলাদা মেথড কল হবে
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $category->create();
+    } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
+      $category->index();
+    } else {
+      http_response_code(405);
+      echo json_encode(["message" => "Method Not Allowed"]);
+    }
     break;
 
   default:
