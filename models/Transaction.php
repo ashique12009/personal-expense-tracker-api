@@ -72,5 +72,29 @@ class Transaction {
     // নিশ্চিত হওয়া যে আসলেই কোনো রো ডিলিট হয়েছে কিনা
     return $stmt->rowCount() > 0;
   }
-  
+
+  public function update($transactionId, $userId, $categoryId, $amount, $type, $description, $transactionDate) {
+    $stmt = $this->db->prepare("
+        UPDATE transactions 
+        SET category_id = :category_id, 
+            amount = :amount, 
+            type = :type, 
+            description = :description, 
+            transaction_date = :transaction_date
+        WHERE id = :id AND user_id = :user_id
+    ");
+    
+    $stmt->execute([
+      'category_id'      => $categoryId,
+      'amount'           => $amount,
+      'type'             => $type,
+      'description'      => $description,
+      'transaction_date' => $transactionDate,
+      'id'               => $transactionId,
+      'user_id'          => $userId
+    ]);
+
+    // যদি ডেটাবেজে আসলেই কোনো চেঞ্জ হয় তবে true দেবে, অন্যথায় false
+    return $stmt->rowCount() > 0;
+  }
 }
