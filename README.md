@@ -30,6 +30,9 @@ A secure, fully-featured **RESTful API** built from scratch using **Pure PHP** a
 expense-tracker-api/
 ├── config/
 │   └── database.php        # Database Connection (Singleton Pattern)
+├── database/
+│   └── schema.php        # Schema
+│   └── seed.php        # Seed
 ├── controllers/
 │   ├── AuthController.php
 │   ├── CategoryController.php
