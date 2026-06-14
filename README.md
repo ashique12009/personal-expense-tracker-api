@@ -50,22 +50,24 @@ expense-tracker-api/
 ├── .htaccess               # Apache URL Rewriting (Pretty URLs)
 ├── composer.json
 └── README.md
+```
 
 ## 📁 API Endpoints
 
 {
-        "name": "Ashique",
-        "email": "ashique@example.com",
-        "password": "securepassword123"
-    }
-    ```
+  "name": "Ashique",
+  "email": "ashique@example.com",
+  "password": "securepassword123"
+}
+```
+
 * **Success Response (201 Created):**
 ```json
-    {
-        "status": true,
-        "message": "User registered successfully!"
-    }
-    ```
+{
+    "status": true,
+    "message": "User registered successfully!"
+}
+```
 
 #### 2. Login User
 * **URL:** `/api/login`
@@ -73,24 +75,25 @@ expense-tracker-api/
 * **Headers:** `Content-Type: application/json`
 * **Request Body:**
 ```json
-    {
-        "email": "ashique@example.com",
-        "password": "securepassword123"
-    }
-    ```
+{
+    "email": "ashique@example.com",
+    "password": "securepassword123"
+}
+```
+
 * **Success Response (200 OK):**
 ```json
-    {
-        "status": true,
-        "message": "Login successful!",
-        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
-        "user": {
-            "id": 4,
-            "name": "Ashique",
-            "email": "ashique@example.com"
-        }
+{
+    "status": true,
+    "message": "Login successful!",
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
+    "user": {
+        "id": 4,
+        "name": "Ashique",
+        "email": "ashique@example.com"
     }
-    ```
+}
+```
 
 ---
 
@@ -102,19 +105,20 @@ expense-tracker-api/
 * **Headers:** `Content-Type: application/json`, `Authorization: Bearer <token>`
 * **Request Body:**
 ```json
-    {
-        "name": "Food & Groceries",
-        "type": "expense" 
-    }
-    ```
-    *(Note: `type` can only be `income` or `expense`)*
+{
+    "name": "Food & Groceries",
+    "type": "expense" 
+}
+```
+    
+*(Note: `type` can only be `income` or `expense`)*
 * **Success Response (201 Created):**
 ```json
-    {
-        "status": true,
-        "message": "Category created successfully!"
-    }
-    ```
+{
+    "status": true,
+    "message": "Category created successfully!"
+}
+```
 
 #### 2. List Categories
 * **URL:** `/api/categories`
@@ -122,18 +126,18 @@ expense-tracker-api/
 * **Headers:** `Authorization: Bearer <token>`
 * **Success Response (200 OK):**
 ```json
-    {
-        "status": true,
-        "data": [
-            {
-                "id": 7,
-                "name": "Part Time",
-                "type": "income",
-                "created_at": "2026-06-14 08:50:49"
-            }
-        ]
-    }
-    ```
+{
+    "status": true,
+    "data": [
+        {
+            "id": 7,
+            "name": "Part Time",
+            "type": "income",
+            "created_at": "2026-06-14 08:50:49"
+        }
+    ]
+}
+```
 
 #### 3. Update Category
 * **URL:** `/api/categories?id={category_id}`
@@ -141,18 +145,19 @@ expense-tracker-api/
 * **Headers:** `Content-Type: application/json`, `Authorization: Bearer <token>`
 * **Request Body:**
 ```json
-    {
-        "name": "Office Snacks",
-        "type": "expense"
-    }
-    ```
+{
+    "name": "Office Snacks",
+    "type": "expense"
+}
+```
+
 * **Success Response (200 OK):**
 ```json
-    {
-        "status": true,
-        "message": "Category updated successfully!"
-    }
-    ```
+{
+    "status": true,
+    "message": "Category updated successfully!"
+}
+```
 
 #### 4. Delete Category
 * **URL:** `/api/categories?id={category_id}`
@@ -160,11 +165,11 @@ expense-tracker-api/
 * **Headers:** `Authorization: Bearer <token>`
 * **Success Response (200 OK):**
 ```json
-    {
-        "status": true,
-        "message": "Category deleted successfully!"
-    }
-    ```
+{
+    "status": true,
+    "message": "Category deleted successfully!"
+}
+```
 
 ---
 
@@ -176,22 +181,23 @@ expense-tracker-api/
 * **Headers:** `Content-Type: application/json`, `Authorization: Bearer <token>`
 * **Request Body:**
 ```json
-    {
-        "category_id": 1,
-        "amount": 550.00,
-        "type": "expense",
-        "description": "Dinner with team",
-        "transaction_date": "2026-06-14"
-    }
-    ```
-    *(Note: If `transaction_date` is omitted, the system defaults to the current date)*
+{
+    "category_id": 1,
+    "amount": 550.00,
+    "type": "expense",
+    "description": "Dinner with team",
+    "transaction_date": "2026-06-14"
+}
+```
+
+*(Note: If `transaction_date` is omitted, the system defaults to the current date)*
 * **Success Response (201 Created):**
 ```json
-    {
-        "status": true,
-        "message": "Transaction recorded successfully!"
-    }
-    ```
+{
+    "status": true,
+    "message": "Transaction recorded successfully!"
+}
+```
 
 #### 2. List Transactions
 * **URL:** `/api/transactions`
@@ -199,20 +205,20 @@ expense-tracker-api/
 * **Headers:** `Authorization: Bearer <token>`
 * **Success Response (200 OK):**
 ```json
-    {
-        "status": true,
-        "data": [
-            {
-                "id": 12,
-                "amount": "550.00",
-                "type": "expense",
-                "description": "Dinner with team",
-                "transaction_date": "2026-06-14",
-                "category_name": "Food & Groceries"
-            }
-        ]
-    }
-    ```
+{
+    "status": true,
+    "data": [
+        {
+            "id": 12,
+            "amount": "550.00",
+            "type": "expense",
+            "description": "Dinner with team",
+            "transaction_date": "2026-06-14",
+            "category_name": "Food & Groceries"
+        }
+    ]
+}
+```
 
 #### 3. Update Transaction
 * **URL:** `/api/transactions?id={transaction_id}`
@@ -220,21 +226,22 @@ expense-tracker-api/
 * **Headers:** `Content-Type: application/json`, `Authorization: Bearer <token>`
 * **Request Body:**
 ```json
-    {
-        "category_id": 1,
-        "amount": 600.00,
-        "type": "expense",
-        "description": "Dinner with team (Updated price)",
-        "transaction_date": "2026-06-14"
-    }
-    ```
+{
+    "category_id": 1,
+    "amount": 600.00,
+    "type": "expense",
+    "description": "Dinner with team (Updated price)",
+    "transaction_date": "2026-06-14"
+}
+```
+
 * **Success Response (200 OK):**
 ```json
-    {
-        "status": true,
-        "message": "Transaction updated successfully!"
-    }
-    ```
+{
+    "status": true,
+    "message": "Transaction updated successfully!"
+}
+```
 
 #### 4. Delete Transaction
 * **URL:** `/api/transactions?id={transaction_id}`
@@ -242,11 +249,11 @@ expense-tracker-api/
 * **Headers:** `Authorization: Bearer <token>`
 * **Success Response (200 OK):**
 ```json
-    {
-        "status": true,
-        "message": "Transaction deleted successfully!"
-    }
-    ```
+{
+    "status": true,
+    "message": "Transaction deleted successfully!"
+}
+```
 
 ---
 
@@ -258,15 +265,15 @@ expense-tracker-api/
 * **Headers:** `Authorization: Bearer <token>`
 * **Success Response (200 OK):**
 ```json
-    {
-        "status": true,
-        "data": {
-            "total_income": 45000.00,
-            "total_expense": 12500.50,
-            "net_balance": 32499.50
-        }
+{
+    "status": true,
+    "data": {
+        "total_income": 45000.00,
+        "total_expense": 12500.50,
+        "net_balance": 32499.50
     }
-    ```
+}
+```
 
 ---
 
