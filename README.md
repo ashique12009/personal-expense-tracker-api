@@ -45,4 +45,5 @@ expense-tracker-api/
 │   └── index.php           # Single Entry Point & Custom Router
 ├── .env                    # Environment Variables Configuration
 ├── composer.json
+├── .htaccess
 └── README.md
