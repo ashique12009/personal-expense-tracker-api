@@ -46,6 +46,10 @@ switch ($route) {
       $category->create();
     } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
       $category->index();
+    } elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+      $category->delete();
+    } elseif ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+      $category->update();
     } else {
       http_response_code(405);
       echo json_encode(["message" => "Method Not Allowed"]);
