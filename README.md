@@ -53,7 +53,7 @@ expense-tracker-api/
 ```
 
 ## 📁 API Endpoints
-
+```json
 {
   "name": "Ashique",
   "email": "ashique@example.com",
