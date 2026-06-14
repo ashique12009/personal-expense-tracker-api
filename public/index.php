@@ -63,6 +63,8 @@ switch ($route) {
       $transaction->create();
     } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
       $transaction->index();
+    } elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE') { 
+      $transaction->delete();
     } else {
       http_response_code(405);
       echo json_encode(["message" => "Method Not Allowed"]);

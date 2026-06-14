@@ -61,4 +61,16 @@ class Transaction {
       "net_balance"   => $netBalance
     ];
   }
+
+  public function delete($transactionId, $userId) {
+    $stmt = $this->db->prepare("DELETE FROM transactions WHERE id = :id AND user_id = :user_id");
+    $stmt->execute([
+      'id'      => $transactionId,
+      'user_id' => $userId
+    ]);
+
+    // নিশ্চিত হওয়া যে আসলেই কোনো রো ডিলিট হয়েছে কিনা
+    return $stmt->rowCount() > 0;
+  }
+  
 }

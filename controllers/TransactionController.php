@@ -81,4 +81,40 @@ class TransactionController {
       "data"   => $transactions
     ]);
   }
+
+  public function delete() {
+    if ($_SERVER['REQUEST_METHOD'] !== 'DELETE') {
+      http_response_code(405);
+      echo json_encode(["message" => "Method Not Allowed"]);
+      return;
+    }
+
+    // 🔐 টোকেন ভেরিফাই করা
+    $loggedUser = AuthMiddleware::authenticate();
+    $userId = $loggedUser->id;
+
+    // URL থেকে ট্রানজেকশন আইডি নেওয়া (যেমন: /api/transactions?id=5)
+    $transactionId = isset($_GET['id']) ? (int)$_GET['id'] : null;
+
+    if (!$transactionId) {
+      http_response_code(422);
+      echo json_encode(["message" => "Transaction ID is required."]);
+      return;
+    }
+
+    // ডাটাবেজ থেকে ডিলিট করার চেষ্টা করা
+    if ($this->transactionModel->delete($transactionId, $userId)) {
+      http_response_code(200);
+      echo json_encode([
+        "status"  => true,
+        "message" => "Transaction deleted successfully!"
+      ]);
+    } else {
+      http_response_code(404);
+      echo json_encode([
+        "status"  => false,
+        "message" => "Transaction not found or you are not authorized to delete it."
+      ]);
+    }
+  }
 }
